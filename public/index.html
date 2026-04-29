@@ -52,6 +52,12 @@ body::after {
   z-index: 9999;
 }
 
+.logo {
+  font-family: 'Copperplate', 'Copperplate Gothic Bold', serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 /* ═══════════ LOADER ═══════════ */
 .loader {
   position: fixed; inset: 0;
@@ -62,10 +68,9 @@ body::after {
 }
 .loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader-logo {
-  font-family: 'Playfair Display', serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 900; color: #fff;
-  letter-spacing: -0.02em; overflow: hidden;
+  color: #fff;
+  overflow: hidden;
 }
 .loader-logo span {
   display: inline-block;
@@ -132,10 +137,9 @@ nav {
 }
 nav.show { transform: translateY(0); }
 .nav-logo {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem; font-weight: 700;
-  letter-spacing: 0.25em; text-transform: uppercase;
-  color: #fff; text-decoration: none;
+  font-size: 1.2rem;
+  color: #fff;
+  text-decoration: none;
 }
 .nav-right { display: flex; gap: 2.5rem; align-items: center; }
 .nav-right a {
@@ -282,10 +286,8 @@ nav.show { transform: translateY(0); }
 }
 .hero-tag::before { content: ''; width: 40px; height: 1px; background: var(--silver); }
 .hero h1 {
-  font-family: 'Playfair Display', serif;
   font-size: clamp(4rem, 10vw, 8rem);
-  font-weight: 900; line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 0.85;
   margin-bottom: 1.5rem;
   background: linear-gradient(135deg, #E8E8E8 0%, #FFFFFF 25%, #9E9E9E 50%, #E8E8E8 75%, #FFFFFF 100%);
   background-size: 200% 200%;
@@ -833,7 +835,7 @@ footer {
 
 <!-- LOADER -->
 <div class="loader" id="loader">
-  <div class="loader-logo">
+  <div class="loader-logo logo">
     <span>Silver Fox</span> <span>Barber</span> <span>Co.</span>
   </div>
   <div class="loader-line"></div>
@@ -842,7 +844,7 @@ footer {
 
 <!-- NAV (hidden at top, appears after hero) -->
 <nav id="nav">
-  <a href="#hero" class="nav-logo">Silver Fox Barber Co.</a>
+  <a href="#hero" class="nav-logo logo">Silver Fox Barber Co.</a>
   <div class="nav-right">
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -884,7 +886,7 @@ footer {
   </div>
   <div class="hero-content" id="heroContent">
     <div class="hero-tag">Orinda, California - Est. 2022</div>
-    <h1>Silver Fox<br><span>Barber Co.</span></h1>
+    <h1 class="logo">Silver Fox<br><span>Barber Co.</span></h1>
     <div class="hero-bottom">
       <p class="hero-desc">Premium grooming in the heart of Theatre Square. Traditional craft, modern precision.</p>
       <a href="https://silverfoxbarber.zenoti.com/webstoreNew/services" class="btn-book">Book Your Cut</a>
