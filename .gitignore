@@ -1,0 +1,15 @@
+.DS_Store
+.data
+.wrangler
+node_modules
+.nuxt
+.env
+dist
+.output
+.claude
+.cursor
+_screenshots
+
+.dev.vars*
+!.dev.vars.example
+!.env.example

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Silver Fox Barber Co.</title>
+  <meta name="description" content="Privacy Policy for Silver Fox Barber Co. — Premium barbershop in Orinda, CA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --silver: #C0C0C0;
+      --silver-bright: #E0E0E0;
+      --silver-dark: #6E6E6E;
+      --bg: #0A0A0A;
+      --bg-alt: #0F0F0F;
+      --bg-card: #141414;
+      --text: #E0E0E0;
+      --text-dim: #777;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: var(--silver-dark) var(--bg);
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--silver-dark); border-radius: 3px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--silver);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-back:hover {
+      color: var(--silver);
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      flex: 1;
+      padding: 10rem 3rem 8rem;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .page-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s var(--ease-out) 0.2s forwards;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, #E8E8E8 0%, #FFFFFF 25%, #B0B0B0 50%, #E8E8E8 75%, #FFFFFF 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 8s ease-in-out infinite, fadeUp 0.9s var(--ease-out) 0.3s both;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--silver-dark);
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.5s forwards;
+    }
+
+    .policy-body {
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out) 0.6s forwards;
+    }
+
+    .policy-body p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+
+    .policy-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--silver-bright);
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .policy-body ul {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+
+    .policy-body ul li {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-dim);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .policy-body ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--silver-dark);
+      font-size: 0.8rem;
+    }
+
+    .policy-body .contact-block {
+      margin-top: 0.5rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: var(--bg-card);
+    }
+
+    .policy-body .contact-block p {
+      margin-bottom: 0.25rem;
+      color: var(--silver-bright);
+    }
+
+    .policy-body .contact-block a {
+      color: var(--silver);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .policy-body .contact-block a:hover {
+      color: #fff;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .f-left {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+    }
+
+    .f-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .f-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .f-links a:hover {
+      color: var(--silver);
+    }
+
+    .f-right {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      main {
+        padding: 8rem 1.5rem 5rem;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+
+      .f-links {
+        gap: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">SILVER FOX</a>
+    <a class="nav-back" href="/">&larr; Back to Site</a>
+  </nav>
+
+  <main>
+    <p class="page-label">Legal</p>
+    <h1>Privacy Policy</h1>
+    <div class="divider"></div>
+
+    <div class="policy-body">
+      <p>Silver Fox Barber Co. respects your privacy and is committed to protecting your personal information.</p>
+
+      <h2>Information We Collect</h2>
+      <p>We may collect personal information such as your name, phone number, email address, and appointment history when you book services through our app or website.</p>
+
+      <h2>How We Use Information</h2>
+      <p>Your information is used to:</p>
+      <ul>
+        <li>Schedule and manage appointments</li>
+        <li>Send confirmations, reminders, and updates</li>
+        <li>Process payments securely</li>
+        <li>Improve our services and customer experience</li>
+      </ul>
+
+      <h2>Third-Party Services</h2>
+      <p>We may use trusted third-party providers (such as booking and payment platforms) to process your information securely.</p>
+
+      <h2>Data Security</h2>
+      <p>We take reasonable measures to protect your personal information.</p>
+
+      <h2>Your Rights</h2>
+      <p>You may request access, correction, or deletion of your personal data by contacting us.</p>
+
+      <h2>Contact</h2>
+      <div class="contact-block">
+        <p>Silver Fox Barber Co.</p>
+        <p><a href="mailto:info@silverfoxbarberco.com">info@silverfoxbarberco.com</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="f-left">Silver Fox Barber Co. &mdash; Orinda, CA</div>
+    <div class="f-links">
+      <a href="https://www.instagram.com/silverfoxbarberco" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/silverfoxbarberco/" target="_blank">Facebook</a>
+    </div>
+    <div class="f-right">&copy; 2026 Silver Fox Barber Co.</div>
+  </footer>
+
+</body>
+</html>

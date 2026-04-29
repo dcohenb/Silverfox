@@ -1,0 +1,8 @@
+name = "silverfox-barber"
+compatibility_date = "2025-04-01"
+
+workers_dev = true
+preview_urls = false
+
+[assets]
+directory = "./public"

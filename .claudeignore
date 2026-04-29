@@ -1,0 +1,22 @@
+# Build outputs
+.nuxt/
+.output/
+dist/
+
+# Dependencies
+node_modules/
+
+# Cloudflare local state
+.wrangler/
+
+# Lock files (large, no value to Claude)
+package-lock.json
+pnpm-lock.yaml
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
