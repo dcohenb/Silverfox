@@ -620,7 +620,8 @@ section { padding: 8rem 3rem; scroll-snap-align: start; }
 
 /* Per-barber book button */
 .t-member .t-book {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   margin-bottom: 1.25rem;
   font-size: 0.7rem;
   padding: 0.6rem 1.4rem;
