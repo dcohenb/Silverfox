@@ -1,8 +1,0 @@
-- open zenoti in the same window, don't open a new tab.
-- header should be there from the marquee, it is showhing up too late into the scroll
-- Main title "Silver Fox Barber" should read "Silverfox Barber Co." in same font, "Silverfox" can have the silver effect
-- move barbers up, after "Services" before "Our Work"
-- Remove section "what to expect"
-- new phone number - 925-391-2639
-- Add a "Call or text us" next to phone number, both are accepted
-- James availiabily Thu-Mon, Dave availiabily Mon-Fri (All saturdays)
