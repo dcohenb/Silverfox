@@ -437,39 +437,15 @@ section { padding: 8rem 3rem; scroll-snap-align: start; }
 }
 .gallery-hint::after { content:''; flex:1; height:1px; background:rgba(255,255,255,0.06); }
 
-/* ═══════════ TESTIMONIALS ═══════════ */
+/* ═══════════ TESTIMONIALS (Featurable widget) ═══════════ */
+/* Widget renders inside an open shadow root; theme rules are injected   */
+/* into that root from index.html. Only outer layout lives here.         */
 .testimonials { padding: 8rem 3rem; background: var(--bg); overflow: hidden; }
-.test-container {
-  max-width: 800px; margin: 3rem auto 0;
-  position: relative; min-height: 280px;
+.featurable-wrap {
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  padding: 0 24px;
 }
-.test-card {
-  position: absolute; inset: 0;
-  opacity: 0; transform: translateY(20px);
-  transition: all 0.7s var(--ease-out);
-  display: flex; flex-direction: column;
-  align-items: center; text-align: center;
-  pointer-events: none;
-}
-.test-card.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.test-stars { color: var(--silver); font-size: 1.1rem; letter-spacing: 0.2em; margin-bottom: 2rem; }
-.test-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-  font-style: italic; color: var(--silver-bright);
-  line-height: 1.7; margin-bottom: 2rem; max-width: 650px;
-}
-.test-author {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--silver-dark);
-}
-.test-nav { display: flex; gap: 1rem; justify-content: center; margin-top: 3rem; }
-.test-dot {
-  width: 40px; height: 3px; background: rgba(255,255,255,0.1);
-  cursor: pointer; transition: all 0.4s; border: none; padding: 0;
-}
-.test-dot.active { background: var(--silver); }
 
 /* ═══════════ TEAM ═══════════ */
 .team { padding: 8rem 3rem; background: var(--bg-alt); position: relative; }

@@ -184,33 +184,9 @@
     <p class="s-num">04 - Reviews</p>
     <h2 class="s-title">What Clients Say</h2>
   </div>
-  <div class="test-container" id="testContainer">
-    <div class="test-card active">
-      <div class="test-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-      <p class="test-quote">&ldquo;Best barbershop in the East Bay, hands down. Dave gives the most consistent, clean cuts I've ever had. I won't go anywhere else.&rdquo;</p>
-      <p class="test-author">5-Star Google Review</p>
-    </div>
-    <div class="test-card">
-      <div class="test-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-      <p class="test-quote">&ldquo;James is incredible. 25 years of experience shows in every cut. My whole family comes here - best barbershop in Orinda.&rdquo;</p>
-      <p class="test-author">5-Star Yelp Review</p>
-    </div>
-    <div class="test-card">
-      <div class="test-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-      <p class="test-quote">&ldquo;The hot towel shave is an experience. Great atmosphere, skilled barbers, and they genuinely care about getting it right. A real neighborhood gem.&rdquo;</p>
-      <p class="test-author">5-Star Google Review</p>
-    </div>
-    <div class="test-card">
-      <div class="test-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-      <p class="test-quote">&ldquo;Moved to Orinda last year and Silver Fox was the first place I found. Haven't looked anywhere else since. Professional, friendly, and always on point.&rdquo;</p>
-      <p class="test-author">5-Star Yelp Review</p>
-    </div>
-  </div>
-  <div class="test-nav" id="testNav">
-    <button class="test-dot active" data-i="0"></button>
-    <button class="test-dot" data-i="1"></button>
-    <button class="test-dot" data-i="2"></button>
-    <button class="test-dot" data-i="3"></button>
+  <div class="featurable-wrap reveal">
+    <div id="featurable-5b1c3f9f-1070-4cf9-8210-0f27328247d3" data-featurable-async></div>
+    <script src="https://featurable.com/assets/v2/carousel_default.min.js" defer charset="UTF-8"></script>
   </div>
 </section>
 
@@ -418,27 +394,138 @@ window.addEventListener('load', () => {
   setTimeout(drift, 2500);
 })();
 
-// ═══════════ TESTIMONIALS ═══════════
+// ═══════════ FEATURABLE THEME (shadow DOM injection) ═══════════
 (function() {
-  const cards = document.querySelectorAll('.test-card');
-  const dots = document.querySelectorAll('.test-dot');
-  let cur = 0, iv;
+  const host = document.getElementById('featurable-5b1c3f9f-1070-4cf9-8210-0f27328247d3');
+  if (!host) return;
 
-  function go(i) {
-    cards[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
-    cur = i;
-    cards[cur].classList.add('active');
-    dots[cur].classList.add('active');
+  const themeCSS = `
+    /* Hide busy summary bar (Excellent / Google Rating / N reviews) */
+    .carousel__summary { display: none !important; }
+
+    /* "Powered by Featurable" badge — keep visible but subtle */
+    .carousel > div.mt-4 { margin-top: 2rem !important; opacity: 0.35 !important; transition: opacity 0.3s ease !important; }
+    .carousel > div.mt-4:hover { opacity: 0.7 !important; }
+    .carousel > div.mt-4 > a {
+      background: transparent !important;
+      border: none !important;
+      color: #777 !important;
+      padding: 0 !important;
+      font-size: 0.7rem !important;
+    }
+    .carousel > div.mt-4 > a p { font-size: 0.7rem !important; letter-spacing: 0.05em !important; }
+    .carousel > div.mt-4 > a svg { height: 0.8rem !important; width: auto !important; }
+
+    /* Review card — blend with site, silver border, equal height */
+    .review, .review--md, .review--dark {
+      background: #141414 !important;
+      border: 1px solid rgba(192, 192, 192, 0.15) !important;
+      border-radius: 4px !important;
+      box-shadow: none !important;
+      padding: 1.5rem !important;
+      min-height: 240px !important;
+      transition: border-color 0.4s ease, transform 0.4s ease !important;
+    }
+    .review:hover { border-color: #C0C0C0 !important; transform: translateY(-2px); }
+    .carousel__card { padding: 0.5rem !important; }
+
+    /* Reviewer name */
+    .review__reviewer-name,
+    .review__reviewer-name--sm, .review__reviewer-name--md,
+    .review__reviewer-name--lg, .review__reviewer-name--xl {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 500 !important;
+      color: #E0E0E0 !important;
+    }
+    /* Review body text */
+    .review__text,
+    .review__text--sm, .review__text--md, .review__text--lg, .review__text--xl {
+      font-family: 'Inter', sans-serif !important;
+      color: #E0E0E0 !important;
+      line-height: 1.7 !important;
+      font-size: 0.95rem !important;
+    }
+    /* Date */
+    .review__date,
+    .review__date--sm, .review__date--md, .review__date--lg, .review__date--xl {
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-size: 0.7rem !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      color: #777 !important;
+    }
+    .review__read-more, .review__read-more--dark { color: #C0C0C0 !important; }
+
+    /* Silver stars — beat inline rgb() and Tailwind text-[#F8AF0D] */
+    .star-rating__star,
+    .star-rating__star--filled,
+    .star-rating__fill,
+    .star-rating__fill span,
+    .star-rating__fill svg { color: #C0C0C0 !important; }
+    .star-rating__empty,
+    .star-rating__empty span,
+    .star-rating__empty svg { color: rgba(192, 192, 192, 0.2) !important; }
+
+    /* Tone down colorful reviewer avatars to silver/grayscale */
+    .review__reviewer-img,
+    .review__reviewer-img--sm, .review__reviewer-img--md,
+    .review__reviewer-img--lg, .review__reviewer-img--xl {
+      filter: grayscale(100%) contrast(0.9) brightness(0.9) !important;
+    }
+    /* Fallback letter avatar (colored circle behind the img) */
+    .review__reviewer-container > div[style*="background-color"],
+    .review__reviewer-container--sm > div[style*="background-color"],
+    .review__reviewer-container--md > div[style*="background-color"],
+    .review__reviewer-container--lg > div[style*="background-color"],
+    .review__reviewer-container--xl > div[style*="background-color"] {
+      background-color: #1a1a1a !important;
+      border: 1px solid rgba(192, 192, 192, 0.25) !important;
+      color: #C0C0C0 !important;
+    }
+
+    /* Hide the Google "G" logo in the card footer (last svg sibling of star-rating) */
+    .review__footer > svg,
+    .review__footer > img,
+    .review__footer > div:last-child:not(.star-rating) { display: none !important; }
+
+    /* Carousel arrows */
+    .carousel__btn {
+      background: #141414 !important;
+      border: 1px solid rgba(192, 192, 192, 0.25) !important;
+      color: #C0C0C0 !important;
+      box-shadow: none !important;
+    }
+    .carousel__btn:hover {
+      background: #1a1a1a !important;
+      border-color: #C0C0C0 !important;
+      color: #E0E0E0 !important;
+      box-shadow: none !important;
+    }
+  `;
+
+  function inject(root) {
+    if (root.querySelector('style[data-silverfox-theme]')) return;
+    const s = document.createElement('style');
+    s.setAttribute('data-silverfox-theme', '');
+    s.textContent = themeCSS;
+    root.appendChild(s);
   }
-  function next() { go((cur + 1) % cards.length); }
-  function start() { iv = setInterval(next, 6000); }
 
-  dots.forEach(d => d.addEventListener('click', () => {
-    clearInterval(iv); go(+d.dataset.i); start();
-  }));
-  start();
+  function tryInject() {
+    const wrap = host.querySelector('.shadow-wrapper');
+    if (wrap && wrap.shadowRoot) {
+      inject(wrap.shadowRoot);
+      return true;
+    }
+    return false;
+  }
+
+  tryInject();
+  const obs = new MutationObserver(() => tryInject());
+  obs.observe(host, { childList: true, subtree: true });
+  setTimeout(() => obs.disconnect(), 15000);
 })();
+
 </script>
 </body>
 </html>
